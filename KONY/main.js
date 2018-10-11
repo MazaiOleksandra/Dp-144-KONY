@@ -1,9 +1,12 @@
 
 var num=parseInt(prompt('Введите номер задачи от 1 до 7','1'));
 
+
 var arrTasks=[drowChessDesk,,,checkPolyndrom,countLuckyTicket,outputNumbers,outputFibon];
+var arrParams=[drowChessDesk,,,checkPolyndrom,countLuckyTicket,outputNumbers,outputFibon];
+
 switch(num){
-    case 1: console.log('решение задачи 1 \n' + arrTasks[num-1](10,5.5,'5641356'));	break;
+    case 1: outputResult(arrTasks[num-1](10,5.5,'5641356'),1);	break;
     case 2:console.log('решение задачи 2 \n' + arrTasks[num-1]());break;
     case 3:console.log('решение задачи 3 \n' + arrTasks[num-1]());break;
     case 4:console.log('решение задачи 4 \n' + arrTasks[num-1](126588887));break;
@@ -36,10 +39,14 @@ function validationParam(params,num){
         else{
             return true;
         }
-
-
     }
     if(num==5){
     }
+
+}
+
+function outputResult(res,num){
+    console.log('решение задачи '+num+' \n' + res);
+    return true;
 
 }
