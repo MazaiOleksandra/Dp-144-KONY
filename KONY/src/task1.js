@@ -1,27 +1,32 @@
+// Шахматная доска
+// Вывести шахматную доску с заданными размерами высоты и ширины, по принципу:
+//         * * * * * *
+//          * * * * * *
+//         * * * * * *
+//          * * * * * *    
+// Входные параметры: длина, ширина, символ для отображения.
+// Выход: строка с представлением шахматной доски
 
 
-function drowChessDesk(width,len,symb){
+function drowChessDesk(param){
 	var table='';
 	var row='';
 	if(!validationParam(arguments,1)){
 		return 'Неверные параметры для задачи,перечитайте условие';
 	}
 	
-
-for(var i=0;i<width/2;i++){
-row +=symb+' ';
-}
-
-for(i=0;i<len/2;i++){
-	if(i%2===0){
-		table+=row+'\n'
+	var cnt=param.width;
+	for(var i=0;i<cnt/2;i++){
+		row +=param.symb+' ';
 	}
-	else {
-		table+=' '+row+'\n';
-	}
- }
-
- return table;
+	cnt=param.len;
+	for(i=0;i<cnt/2;i++){
+		if(i%2===0){
+			table+=row+'\n';
+		}
+		else {
+			table+=' '+row+'\n';
+		}
+	 }
+	return table;
 }
-
-

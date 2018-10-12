@@ -1,52 +1,78 @@
 
-var num=parseInt(prompt('Введите номер задачи от 1 до 7','1'));
+
+var num=parseInt(prompt('Введите номер задачи от 1 до 7','1'))-1;
+var arrTasks=[drowChessDesk,checkInscribeCovers,,checkPolyndrom,countLuckyTicket,outputNumbers,outputFibon];
+var arrParams=[drowChessDeskParam,checkInscribeCoverParam,,checkPolyndrom,countLuckyTicketParam,outputNumbersParam,outputFibon];
 
 
-var arrTasks=[drowChessDesk,,,checkPolyndrom,countLuckyTicket,outputNumbers,outputFibon];
-var arrParams=[drowChessDesk,,,checkPolyndrom,countLuckyTicket,outputNumbers,outputFibon];
-
-switch(num){
-    case 1: outputResult(arrTasks[num-1](10,5.5,'5641356'),1);	break;
-    case 2:console.log('решение задачи 2 \n' + arrTasks[num-1]());break;
-    case 3:console.log('решение задачи 3 \n' + arrTasks[num-1]());break;
-    case 4:console.log('решение задачи 4 \n' + arrTasks[num-1](126588887));break;
-    case 5:console.log('решение задачи 5 \n' + arrTasks[num-1]({min:'000000',max:'999999'}));break;
-    case 6:console.log('решение задачи 6 \n' + arrTasks[num-1](10,12354));break;
-    case 7:console.log('решение задачи 7 \n' + arrTasks[num-1](10,10,'sdfg'));break;
-    default: console.log('not found task whith num' + num);
+if(arrTasks[num]!== undefined){
+    outputResult(arrTasks[num](arrParams[num],num));    
 }
-//var z= arrTasks[num-1].name(10,10,'x');
-//document.write(z);
-
-
+else {
+    outputResult('Задача не найдена' ,'-')
+}
 
 function validationParam(params,num){
-    if(num==1){
-        if(params[0]===undefined||params[1]===undefined||params[2]===undefined
-            ||params[0]%1!==0||params[0]<0
-            ||params[1]%1!==0||params[1]<0||params[2]==''){
+    switch(num){
+        case 1:
+        if(checkisInt(params[0].len)&& checkisInt(params[0].width)&&
+           checkIsSymb(params[0].symb)){
+            return true;
+        }else{
             return false;
         }
-        else{
+        break;
+        case 2: 
+        if(checkisNum(params[0].cover1.side1)&&checkisNum(params[0].cover1.side2)
+            &&checkisNum(params[0].cover2.side1)&&checkisNum(params[0].cover2.side2)){
             return true;
         }
-    }
-    if (num==6){
-        console.log(params);
-        if(params[0]===undefined||params[0]%1!==0 || params[1]%1!==0){
+        else{
             return false;
         }
-        else{
+        case 6: 
+        if(checkisInt(params[0].lng)&&checkisNum(params[0].minSqr)){
             return true;
         }
+        else{
+            return false;
+        }
+        break;
+        default:return false;
     }
-    if(num==5){
-    }
-
 }
 
-function outputResult(res,num){
-    console.log('решение задачи '+num+' \n' + res);
-    return true;
+//check param is positive integer 
+function checkisInt(int) {
+    if((int ^ 0) === int){
+        return true;
+    }
+    return false;
+}
 
+//check param is positive number
+function checkisNum(number) {
+    if(typeof number=== 'number' && number>0 ){
+        return true;
+    }
+    return false;
+}
+//check param is'nt empty string
+function checkIsSymb(str) {
+ if(typeof str==='string' && str.length>0){
+        return true;
+    }
+    return false;
+}
+//check param is 
+function checkObjLength(obj) {
+ if(typeof obj==='object'&&obj!==null){
+        return true;
+    }
+    return false;
+}
+
+function outputResult(res){
+    console.log(res);
+    return true;
 }
