@@ -1,28 +1,41 @@
-function outputFibon(param){
-	var FibonArr=[0,1];
-	var i=1; 
-	var lngFibon,delIdx;
+// Ряд Фибоначчи для диапазона
+// Вывести все числа Фибоначчи, которые удовлетворяют переданному в функцию ограничению: 
+// находятся в указанном диапазоне, либо имеют указанную длину.
 
-	if(typeof param == 'object'){
-       while(FibonArr[i]<param.max){
-			FibonArr.push(FibonArr[i]+FibonArr[i-1]);
-        	i++;
-        }
-        FibonArr.pop();
-        lngFibon=FibonArr.length;
-        for(i=0;i<lngFibon;i++){
-        	if(FibonArr[i]<param.min){
-            delIdx=i;
-        	}
-        }
-        	FibonArr.splice(0, delIdx+1);
+// Входные параметры: объект context с полями min и max, либо с полем length
+// Выход: массив чисел
 
-	} 
-	else{
-		FibonArr.push(0,1);
-        for(i=2;i<param;i++){
-        	FibonArr.push(FibonArr[i-1]+FibonArr[i-2]);
+function OutputFibon(param){
+    var FibonArr=[];
+    var i=0; 
+    var lngFibon,delIdx;
+
+    if(typeof param == 'object'){
+    var minCnt=Math.floor(Math.log(param.min*2.236) / Math.log(1.618)); alert(minCnt);
+    var tmp=0;
+       while(tmp<=param.max){
+            FibonArr.push(Math.round(Math.pow(1.618,minCnt)/2.236));
+            minCnt++;
+            tmp = FibonArr[i];
+            i++;
         }
-	}
-	return FibonArr;
+        FibonArr.pop();         
+
+    } 
+    else{
+    var FibonArr=[0,1];
+
+        for(i=2;i<param-1;i++){
+            FibonArr.push(FibonArr[i-1]+FibonArr[i-2]);
+        }
+    }
+    return FibonArr;
+}
+
+
+function calcNearestMinFibon(min) {    
+    var minCnt=Math.floor(Math.log(min*2.236) / Math.log(1.618));
+}
+
+function calcFibanNum(index){
 }

@@ -1,5 +1,3 @@
-
-
 var num=parseInt(prompt('Введите номер задачи от 1 до 7','1'))-1;
 var arrTasks=[drowChessDesk,checkInscribeCovers,,checkPolyndrom,countLuckyTicket,outputNumbers,outputFibon];
 var arrParams=[drowChessDeskParam,checkInscribeCoverParam,,checkPolyndrom,countLuckyTicketParam,outputNumbersParam,outputFibon];

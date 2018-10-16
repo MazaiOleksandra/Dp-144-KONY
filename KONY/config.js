@@ -1,9 +1,7 @@
-
-
 //1 task param
 var drowChessDeskParam = {
-    width:10,
-    len:5,
+    width:3,
+    len:10,
     symb:'dfg'
 }
 
@@ -14,7 +12,7 @@ var checkInscribeCoverParam={
 		side2:10
 	},
 	cover2:{
-		side1:'10',
+		side1:11,
 		side2:100
 	}
 }

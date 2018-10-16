@@ -9,24 +9,32 @@
 
 
 function drowChessDesk(param){
-	var table='';
-	var row='';
+	var resultTable='';
+	var row='';	
 	if(!validationParam(arguments,1)){
 		return 'Неверные параметры для задачи,перечитайте условие';
 	}
-	
-	var cnt=param.width;
-	for(var i=0;i<cnt/2;i++){
-		row +=param.symb+' ';
+
+	for(var i=0;i<param.width;i++){
+		row=concatString(row,param.symb," ");
 	}
-	cnt=param.len;
-	for(i=0;i<cnt/2;i++){
+	row=concatString(row,'\n');
+
+	for(i=0;i<param.len;i++){
 		if(i%2===0){
-			table+=row+'\n';
+			resultTable=concatString(resultTable,row);
 		}
 		else {
-			table+=' '+row+'\n';
+			resultTable=concatString(resultTable,' ',row);
 		}
 	 }
-	return table;
+	return resultTable;
+}
+
+function concatString() {
+	var resultString='';
+	for (var key in arguments){
+		resultString+=arguments[key];
+	}
+	return resultString;
 }
