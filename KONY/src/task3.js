@@ -14,6 +14,16 @@
 //  }
 
 
+
+//главная функция сортировки массива
+function mainSortTriangle(arrTriang){
+	var newArr=checkAbilityDrowTriangl(arrTriang);
+	var resultArray=sortArrayTriangles(newArr);
+	return returnResult(resultArray);
+}
+
+
+
 //calc half perimetr of  object
 function calcHalfPerim() {
 	var half=0.5;
@@ -43,12 +53,16 @@ function calcAreaTriangle() {
 	return this.area;
 }
 
+
+//сортировка массива по заданому принципу
 function sortArrayTriangles(array){
 	var newArr=checkAbilityDrowTriangl(array);
 	newArr.sort(compareArea);
 	return newArr;
 }
 
+
+//возврат результата
 function returnResult(array) {
 	var resultArray=[];
 	var lngArr=array.length;
@@ -73,46 +87,10 @@ function checkAbilityDrowTriangl(array){
 }
 
 
-// логика сортировки массива для сортировки массива
+// логика сортировки массива 
 function compareArea(triangle1, triangle2) {
   return triangle2.area - triangle1.area;
 }
-
-function mainSortTriangle(arrTriang){
-	var newArr=checkAbilityDrowTriangl(arrTriang);
-	var resultArray=sortArrayTriangles(newArr);
-	return returnResult(resultArray);
-}
-
-var arr=[{
-	vertices: "A",
-	side1: 1.4,
-	side2: 1.4,
-	side3: 1.4
-},{
-	vertices: "B",
-	side1: 2,
-	side2: 2,
-	side3: 2
-},{
-	vertices: "C",
-	side1: 10,
-	side2: 25,
-	side3: 10
-},{
-	vertices: "D",
-	side1: 10,
-	side2: 25,
-	side3: 20
-},{
-	vertices: "E",
-	side1: 5,
-	side2: 25,
-	side3: 10
-}] 
-
-
-console.log(mainSortTriangle(arr));
 
 
 //check param is positive number
